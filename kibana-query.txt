@@ -1,0 +1,92 @@
+GET /_cat/aliases
+
+
+GET /_cluster/health
+
+GET _cat/nodes?v
+
+GET _cat/shards?v
+
+GET customer_idx/_search
+
+GET _cat/shards?v
+
+GET _cat/nodes
+
+GET /_cluster/health
+
+
+GET _cat/shards?v
+
+
+GET /_cat/nodes?v
+
+
+PUT customer_idx
+
+DELETE customer_idx
+
+
+PUT customer_idx
+{
+  "settings": {
+    "number_of_shards": 2,
+    "number_of_replicas": 2
+  }
+}
+
+##################### shard_num
+
+
+
+
+
+GET customer_idx/_search
+{
+  "query": {
+    "query_string": {
+      "query": "Rosa"
+    }
+  }
+}
+
+
+
+
+GET customer_idx/_doc/_LLQBpYB3AafDG5OXlRb
+
+
+
+POST customer_idx/_update/_LLQBpYB3AafDG5OXlRb
+{
+  "doc": {
+    "contactfirstname": "Rosy"
+  }
+}
+
+
+DELETE /customer_idx
+
+PUT customer_idx
+{
+  "mappings": {
+    "properties": {
+      "customernumber": { "type": "integer" },
+      "customername": { "type": "text" },
+      "contactlastname": { "type": "text" },
+      "contactfirstname": { "type": "text" },
+      "phone": { "type": "text" },
+      "addressline1": { "type": "text" },
+      "addressline2": { "type": "text" },
+      "city": { "type": "text" },
+      "state": { "type": "text" },
+      "postalcode": { "type": "keyword" },
+      "country": { "type": "keyword" },
+      "salesrepemployeenumber": { "type": "integer" },
+      "creditlimit": { "type": "float" },
+      "@timestamp": { "type": "date" }
+    }
+  }
+}
+
+
